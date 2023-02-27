@@ -1,0 +1,21 @@
+
+<p class="h5 mt-3 p-3">Edit And Save</p>
+<form [formGroup]="editForm" class="form">
+    <div class="mb-3">
+        <label for="id" class="form-label">Id</label>
+        <input id="id" class="form-control" type="text" formControlName="id" />
+    </div>
+    <div class="mb-3">
+        <label for="todo" class="form-label">Todo</label>
+        <input id="todo" class="form-control" type="text" formControlName="todo"  />
+    </div>
+    <div class="mb-3">
+        <label for="completed" class="form-label">Completed</label>
+        <input id="completed" class="form-control" type="text" formControlName="completed"  />
+    </div>
+    <div class="mb-3">
+        <label for="userid" class="form-label">User Id</label>
+        <input id="userid" class="form-control" type="text" formControlName="userId"  />
+    </div>
+    <button type="button" class="btn btn-info" (click)="saveTodo()">Save</button>
+</form>

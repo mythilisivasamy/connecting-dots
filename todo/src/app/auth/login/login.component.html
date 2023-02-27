@@ -1,0 +1,22 @@
+
+<div class="card">
+    <div class="card-header text-center">Login</div>
+    <div class="card-body">
+      <form class="form" [formGroup]="loginForm">
+        <div class="mb-3 mt-3">
+            <label for="uname" class="form-label">Username:</label>
+            <input type="text" class="form-control"  id="uname" placeholder="Enter username" formControlName="username"/>
+         </div>
+         <div class="mb-3">
+            <label for="pwd" class="form-label">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password"  formControlName="password"  required />
+         </div> 
+        </form>
+       
+    </div> 
+    <div class="card-footer"><button type="button" class="btn btn-primary" (click)="login()">Submit</button></div>
+  </div>
+{{loginForm.value | json}}  
+<hr/>
+<h3>Response From server</h3> 
+{{response | json }}

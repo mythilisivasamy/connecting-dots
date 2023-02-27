@@ -1,0 +1,25 @@
+<form class="form mt-5" [formGroup]="addTodoForm">
+    <div class="mb-3">
+        <label for="todo" class="form-label">Todo</label>
+        <input id="todo" class="form-control" type="text" placeholder="Enter toto" formControlName="todo">
+    </div>
+    <div class="mb-3">
+        <label for="completed"  class="form-label">Completed</label>
+        <input type="text"  id="completed" class="form-control" formControlName="completed">
+
+    </div>
+    <div class="mb-3">
+        <label for="userid" class="form-label">User Id</label>
+        <input type="text" class="form-control" id="userid" formControlName="userId">
+    </div>
+    <div class="mb-3">
+        <button type="button" class="btn btn-info" (click)="addTodo()">Add Todo</button>
+    </div>
+</form>
+
+{{addTodoForm.value | json}}
+
+
+
+
+

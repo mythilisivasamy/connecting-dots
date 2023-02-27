@@ -1,0 +1,117 @@
+      body{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: white;
+        }
+         .flex-container {
+            display: flex;
+            flex-flow: row wrap;
+            padding: 20px;
+            justify-content:space-evenly;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .flex-item a {
+            flex: 100px;
+            text-align: center;
+            margin: 10px;
+            text-decoration: none;
+            transition: 0.2s linear;
+            
+        }
+
+        .flex-item a:hover {
+           border-bottom: 2px solid yellow;
+           color:white;
+        }
+        .flex-item a{
+            color:lightgrey;
+        }
+
+        .medium{
+            font-size:20px;
+        }
+
+        .white{
+            color:white;
+        }
+        .grey{
+            color:grey;
+        }
+        .img-sm {
+            width:25px;
+            height:50px;
+            border:none;
+        }
+        .img-md{
+            width:100px;
+            height:200px;
+        }
+        .img-md1{
+            width:200px;
+            height:300px;
+        }
+        .button {
+             border-radius: 12 px;  
+             border:1px solid rgb(248, 246, 246);          
+        }
+
+        .button:hover {
+            background-color:yellow;
+            border-radius: 12 px;
+            color:black;
+            }
+            
+            #couch{
+                position:relative;
+                top:0px;
+                margin:0px;
+                width:500px;
+                height:400px;
+                z-index:1;
+            }
+            #dotted{
+                position:absolute;
+                left:780px;
+                top:125px;
+                width:200px;
+                height:100px;
+            }
+
+            #dot,#dot1{
+                position:absolute;
+                left:5px;
+                top:1px;
+                width:200px;
+                height:100px;
+            }
+
+            #why-img ,#group35{
+                position: relative;
+                left:50px;
+                top:20px;
+                width:500px;
+                height:500px;
+                margin:20px 2px;
+                z-index:1;
+            }
+            .img-icon{
+                width:25px;
+                height:25px;
+            }
+
+            .mask{
+                height: 200px;
+                width:300px;
+                border-radius: 2px;
+            }
+
+            .img-sofa{
+                position:absolute;
+                left:600px;
+                top:-60px;
+                width:300px;
+                height:200px;
+            }
+
+            
