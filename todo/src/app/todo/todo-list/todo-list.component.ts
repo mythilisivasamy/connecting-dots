@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable,of} from 'rxjs';
+import { Observable,of,Subscription} from 'rxjs';
 import {Todo,Todos} from '../todo-model';
 import { TodoService } from '../todo.service';
 
@@ -12,14 +12,11 @@ export class TodoListComponent implements OnInit {
   todoList$!:Observable<Todo[]>;
   todoList:Todo[]=[];
   isProgress!:boolean;
+  subscription!:Subscription;
   constructor(private ts:TodoService) { }
 
   ngOnInit(): void {
-    this.getTodos();
-  }
-
-  getTodos(){
-    this.ts.getTodos().subscribe(
+   this.subscription=this.ts.getTodos().subscribe(
       todos=> {
         if(todos===null){
           this.isProgress=true;
@@ -31,5 +28,10 @@ export class TodoListComponent implements OnInit {
         console.log(err);
       }
 
-  )}
+  )
+  }
+  ngOnDestory(){
+    this.subscription.unsubscribe();
+  }
+ 
 }

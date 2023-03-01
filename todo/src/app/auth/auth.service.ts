@@ -14,7 +14,7 @@ export class AuthService {
   constructor(private http:HttpClient){}
   // store the URL so we can redirect after logging in
   redirectUrl: string | null = null;
-
+  
   login(data:Data): Observable<any> {
     return this.http.post(this.loginUrl,data,{observe:'response',headers:this.reqHeader}).pipe(
       tap(()=>this.isLoggedIn=true),
@@ -27,5 +27,9 @@ export class AuthService {
 
   logout(): void {
     this.isLoggedIn = false;
+  }
+
+  getAuthorizationToken(){
+    return localStorage.getItem('token');
   }
 }

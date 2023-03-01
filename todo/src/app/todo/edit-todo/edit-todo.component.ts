@@ -59,8 +59,11 @@ export class EditTodoComponent implements OnInit {
   saveTodo(){
      this._todo={id:this.id.value,todo:this.todo.value,completed:this.completed.value,userId:this.userId.value };
     this.todoService.editTodo(this._todo).subscribe(
-       ()=> this.router.navigate(['/addtodo']),
-       (err)=>{console.log(err)}
+     (todo)=>{
+        console.log('todo added',todo);
+        return this.router.navigate(['']);
+      },
+     (err)=>console.log(err)
        );
     }
      

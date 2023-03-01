@@ -15,5 +15,6 @@ import { AuthRoutingModule } from './auth-routing.module';
     AuthRoutingModule
   ],
   exports:[LoginComponent]
+ 
 })
 export class AuthModule { }

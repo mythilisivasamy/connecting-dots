@@ -43,7 +43,7 @@ export class AddTodoComponent implements OnInit {
 
     this.todoService.createTodo(data).subscribe(response => {
       console.log(response);
-      this.router.navigate(['/todoList']);
+      this.router.navigate(['']);
       
     });
   }

@@ -10,7 +10,7 @@ import { catchError, retry,tap,map } from 'rxjs/operators';
 export class TodoService {
   private todoUrl='https://dummyjson.com/todos';
   todos$!:Observable<Todos>;
-  headerOptions = { 'content-type': 'application/json'} 
+  headerOptions = { 'content-type': 'application/json' as const} 
   constructor(private http:HttpClient) {
     this.todos$=this.getTodos();
    }
@@ -28,8 +28,7 @@ export class TodoService {
 
   getTodos():Observable<Todos>{
     return this.http.get<Todos>(this.todoUrl,{reportProgress:true}).pipe(
-      retry(2),
-      tap((val)=>console.log("id",val.todos)),
+      tap(()=>this.todos$=this.getTodos()),
       catchError(this.handleError)
     );
   }
@@ -42,7 +41,6 @@ export class TodoService {
   createTodo(todo:Todo): Observable<any> {
     console.log(todo);
      return this.http.post<Todo>(`${this.todoUrl}/add`,todo,{headers:this.headerOptions}).pipe(
-      retry(3),
       catchError(this.handleError)
     )
   }
@@ -50,7 +48,7 @@ export class TodoService {
   editTodo(todo:Todo): Observable<any> {
     //console.log(`${this.todoUrl}/${todo.id},${todo.completed}`);
     return this.http.put(`${this.todoUrl}/${todo.id}`,{completed:todo.completed},{headers:this.headerOptions}).pipe(
-      retry(2),
+      tap(val=>console.log('edit',val)),
       catchError(this.handleError)
       );
   }

@@ -14,7 +14,6 @@ export class LoginComponent implements OnInit {
     username : new FormControl(''),
     password : new FormControl('')
    });
- response!:any;
  message!:string;
  errorMessage:boolean=false;
 
@@ -38,8 +37,7 @@ export class LoginComponent implements OnInit {
     }
     console.log(data);
     this.authService.login(data).subscribe((resp) => {
-      console.log('response',resp.body);
-      this.response=resp.body;
+      localStorage.setItem('token',JSON.stringify(resp.body.token));
       if(this.authService.isLoggedIn){
         this.authService.redirectUrl=this.authService.redirectUrl || '/home';
         this.router.navigate([this.authService.redirectUrl]);
@@ -49,5 +47,7 @@ export class LoginComponent implements OnInit {
      console.log(err);
     });
   }
+
+ 
 
 }

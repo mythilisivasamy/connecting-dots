@@ -7,6 +7,8 @@ import { AuthModule } from './auth/auth.module';
 import { TodoListModule } from './todo/todo-list.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorInterceptor } from './auth/auth-interceptor.interceptor';
 
 
 @NgModule({
@@ -23,7 +25,11 @@ import { HomeComponent } from './home/home.component';
     AuthModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers:[{
+    provide:HTTP_INTERCEPTORS,
+    useClass:AuthInterceptorInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
